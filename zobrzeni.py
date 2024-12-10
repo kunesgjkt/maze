@@ -50,7 +50,7 @@ class BludisteRenderer:
         if self.bludiste.pohnout(nova_pozice):
             self.vykresli()
         else:
-            print("Pohyb se nezdařil - narazil do zdi nebo mimo mapu.")
+            print("Pohyb se nepovedl - ve zdi, nebo mimo mapu")
 
     def spust(self):
         """
