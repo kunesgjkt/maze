@@ -28,8 +28,6 @@ class BludisteCanvas:
         for y, radek in enumerate(self.bludiste.mapa):
             for x, policko in enumerate(radek):
                 self._vykresli_policko(x, y, policko)
-        self._vykresli_robota()
-
     def _vykresli_policko(self, x, y, typ):
         """Vykreslí jedno políčko na základě jeho typu."""
         x1, y1, x2, y2 = self._souradnice_policka(x, y)

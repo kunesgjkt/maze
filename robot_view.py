@@ -16,9 +16,8 @@ class RobotView:
         x, y = self.robot.pozice
         x1, y1, x2, y2 = self.canvas._souradnice_policka(x, y)
         if self.sprite:
-            self.canvas.canvas.delete(self.sprite)
+            self.canvas.canvas.delete(self.sprite)  # Odstraň starý obraz robota
         self.sprite = self.canvas.canvas.create_oval(x1, y1, x2, y2, fill=self.barva)
-
     def aktualizuj(self):
         """Aktualizuje pozici robota a překreslí jeho sprite."""
         self.vykresli()
