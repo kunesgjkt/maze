@@ -1,7 +1,6 @@
-from bludistatko1 import Bludiste
+from robot_factory import BasicRobotFactory
 from vykresleni import BludisteCanvas
-from robot import Robot
-from robot_view import RobotView
+from xml_loader import nacti_bludiste_z_xml
 import time
 
 
@@ -18,16 +17,14 @@ def pohybuj_robotem(robot, robot_view, kroky, vizualizace, prodleva=0.5):
 
 
 if __name__ == "__main__":
-    bludiste = Bludiste(4, 4, (0, 0), (3, 3), [
-        [0, 1, 0, 0],
-        [0, 1, 0, 1],
-        [0, 0, 0, 1],
-        [1, 1, 0, 'E']
-    ])
+    # Načtení bludiště z XML souboru
+    bludiste = nacti_bludiste_z_xml("bludiste.xml")
 
+    # Vytvoření továrny pro robota a jeho zobrazení
+    robot_factory = BasicRobotFactory()
+    robot = robot_factory.create_robot(bludiste)
     vizualizace = BludisteCanvas(bludiste)
-    robot = Robot(bludiste)
-    robot_view = RobotView(vizualizace, robot)
+    robot_view = robot_factory.create_robot_view(vizualizace, robot)
 
     # Vykreslení počátečního stavu
     vizualizace.vykresli_bludiste()
